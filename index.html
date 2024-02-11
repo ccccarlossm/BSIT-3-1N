@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Responsive Registration Form </title> 
+</head>
+<body>
+    <div class="container">
+        <header>Registration</header>
+        <form      id="form" method="post" action="https://script.google.com/macros/s/AKfycbwOw9tCewOXvbt5hiHtL_Lt26o2OKDUr7iff2s2avMRD31AQJNwjGokZaQ5ML2cGZEa/exec">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" name="FirstName" placeholder="Enter your first name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" name="LastName" placeholder="Enter your last name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Middle Name</label>
+                            <input type="text" name="MiddleName" placeholder="Enter your middle name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" name="MobileNumber" placeholder="Enter mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select name="Gender" required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Personal Email</label>
+                            <input name="PersonalEmail" type="text" placeholder="Enter personal email " required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Vehicle Information</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Car Model</label>
+                            <input type="text" name="CarModel" placeholder="Enter Car Model" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Year Model</label>
+                            <input type="number" name="YearModel" placeholder="Enter Year Model" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>License Plate</label>
+                            <input type="text" name="LicensePlate" placeholder="Enter License Plate" required>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="nextBtn" onclick="showConfirmation()">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+            <div id="confirmationMessage" style="display: none;">
+                <div class="confirmation-content">
+                    <p>Are you sure about your personal information?</p>
+                </div>
+            <div class="buttons-wrapper">
+                <button type="button" class="backBtn" onclick="hideConfirmation()">
+                    <i class="uil uil-navigator"></i>
+                    <span class="btnText">Back</span>
+                </button>
+
+                <button type="submit" class="submit">
+                    <span class="btnText">Submit</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+    <script>
+        function showConfirmation() {
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+
+        function hideConfirmation() {
+            document.getElementById('confirmationMessage').style.display = 'none';
+        }
+    </script>
+     <script>
+        function submitForm() {
+          // Get values from input fields
+          var firstname = $('[name="FirstName"]').val();
+          var lastname = $('[name="LastName"]').val();
+          var middlename = $('[name="MiddleName"]').val();
+          var mobilenumber = $('[name="MobileNumber"]').val();
+          var gender = $('input[name="dropdownGender"]:checked').val();
+          var personalemail = $('[name="PersonalEmail"]').val();
+          var carmodel = $('[name="CarModel"]').val();
+          var yearmodel = $('[name="YearModel"]').val();
+          var licenseplate = $('[name="LicensePlate"]').val();
+          // Prepare data for Google Sheets
+          var formData = {
+            firstname:FirstName,
+            lastname:LastName,
+            middlename:MiddleName,
+            mobilenumber:MobileNumber,
+            gender:Gender,
+            personalemail:PersonalEmail,
+            carmodel:CarModel,
+            yearmodel:YearModel,
+            licenseplate:LicensePlate
+        };
+          alert('Form submitted successfully!');
+          // Optionally, reset the form after submission
+          $('#form')[0].reset();
+        }
+      </script>
+
+</body>
+</html>
